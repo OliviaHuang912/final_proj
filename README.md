@@ -1,6 +1,3 @@
-# final_proj
-final project regarding sleep health and lifestyle
-
 ## Project Overview
 This project analyzes the "Sleep Health and Lifestyle" dataset, which includes data on various factors influencing sleep and overall well-being. The dataset consists of 400 observations across 13 variables, such as age, gender, occupation, BMI, blood pressure, heart rate, daily steps, and the presence or absence of sleep disorders. The objectives of this project are:
 - To explore the key variables through summary statistics.
