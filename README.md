@@ -31,9 +31,9 @@ This will create the `toolkit_proj.html` document, which contains the analysis a
 The code to create the summary table is located in the toolkit_proj.Rmd file under the Descriptive Statistics section. Specifically, this code calculates the mean, median, and standard deviation for key variables, such as age, sleep duration, and physical activity level. 
 
 2. Code for creating the figures
-Figure 1: Sleep Duration by Occupation: 
+*Figure 1: Sleep Duration by Occupation: 
 The code generates a boxplot showing the sleep duaration by occupation
 
-Figure 2: Relationship Between Physical Activity and Sleep Duration: 
+*Figure 2: Relationship Between Physical Activity and Sleep Duration: 
 The scatterplot visualizes the relationship between physical activity and sleep duration.
 
