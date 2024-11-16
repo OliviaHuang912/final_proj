@@ -1,0 +1,97 @@
+---
+title: "Sleep Health and Lifestyle Data Analysis"
+author: "Chiao Yu Huang"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Introduction
+
+In this project, I will analyze "Sleep Health and Lifestyle" dataset. This dataset provides a comprehensive view of how various factors influence sleep and overall well-being. It consists of 400 observations across 13 variables, including age, gender, occupation, BMI, blood pressure, heart rate, daily steps, the presence or absence of sleep disorders and so on. The objectives include:
+* To explore the key variables through summary statistics
+* To analyze how different lifestyle factors affect sleep quality
+* To Visualize the relationships between sleep health and other lifestyle factors
+
+```{r, eval= FALSE}
+# Install the Kaggle API
+system("pip install kaggle")
+system("kaggle datasets download -d uom190346a/sleep-health-and-lifestyle-dataset")
+system("unzip sleep-health-and-lifestyle-dataset.zip")
+
+```
+
+```{r, load-data}
+# Load the dataset into R
+slp <- read.csv("Sleep_health_and_lifestyle_dataset.csv")
+View(slp)
+```
+
+# Descriptive Statistics
+
+Through creating a summary table, we can have a clearer idea of dataset. 
+```{r, echo=FALSE}
+# Set CRAN mirror for package installation
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
+# Load necessary libraries and install if not already installed
+if (!require(knitr)) install.packages("knitr")
+library(knitr)
+```
+
+```{r}
+install.packages("knitr")
+library(knitr)
+
+# Summary statistics
+summary_slp <- data.frame(
+  Variable = c("Age", "Sleep.Duration", "Physical.Activity.Level"),
+  Mean = c(mean(slp$Age, na.tm = TRUE), mean(slp$Sleep.Duration, na.rm=TRUE), mean(slp$Physical.Activity.Level, na.rm=TRUE)),
+  Median = c(median(slp$Age, na.rm = TRUE), median(slp$Sleep.Duration, na.rm = TRUE), median(slp$Physical.Activity.Level, na.rm = TRUE)),
+  SD = c(sd(slp$Age, na.rm = TRUE), sd(slp$Sleep.Duration, na.rm = TRUE), sd(slp$Physical.Activity.Level, na.rm = TRUE))
+)
+
+# Display a table
+kable(summary_slp, caption = "Summary of Key Variables")
+```
+
+## Description of the table
+The table above shows the mean, median and standard deviation for three keys variables: Age, Sleep Duration and Physical Activity. It indicates the average sleep duration in the population and the variability in physical activity levels.
+
+# Figure_1: Sleep duration by occupation
+```{r}
+library(ggplot2)
+
+# Plot sleep duration by occupation
+ggplot(slp, aes(x=factor(Occupation), y=Sleep.Duration)) +
+  geom_boxplot() +
+  labs(title = "Sleep Duration by Occupation",
+       x = "Occupation",
+       y = "Sleep Duration (hours)") +
+  theme_minimal()
+```
+
+## Description of the Figure_1
+
+The boxplot above shows the sleep duration across different occupations. It can identify patterns in sleep behavior across various occupation in this population and highlight the potential outliers in the data. We can notice that doctors and nurses seem to have more variation in sleep duration, while scientists and managers tend to have narrower ranges of sleep. Also, there are a few noticeable outliers in the bars of teachers and software engineers. 
+
+# Figure_2: Scatter plot of physical activity vs sleep duration
+
+```{r}
+library(ggplot2)
+
+ggplot(slp, aes(x = Physical.Activity.Level, y = Sleep.Duration)) +
+  geom_point(color = "blue", alpha = 0.6) +
+  labs(title = "Relationship Between Physical Activity and Sleep Duration",
+       x = "Physical Activity (minutes per day)",
+       y = "Sleep Duration (hours per night)") +
+  theme_minimal()
+```
+
+## Description of the Figure_2
+
+This figure visualizes how sleep duration is influenced by physical activity levels. In this scatterplot, it appears that there is a linear relationship between physical activity and sleep duration. We can further fit a simplae linear regression model to see if the association between physical activity and sleep duration is statistically significant. 
+
+
+
+
+
