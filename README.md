@@ -9,6 +9,7 @@ This project analyzes the "Sleep Health and Lifestyle" dataset, which includes d
     ```bash
     git clone https://github.com/yourusername/your-repository.git
     cd your-repository
+    make install
     ```
     
 2. Ensure that all required R packages are installed:
