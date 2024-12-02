@@ -22,7 +22,7 @@ system("unzip sleep-health-and-lifestyle-dataset.zip")
 
 ```{r, load-data}
 # Load the dataset into R
-slp <- read.csv("Sleep_health_and_lifestyle_dataset.csv")
+slp <- read.csv(here::here("final_proj", "data", "Sleep_health_and_lifestyle_dataset.csv"))
 View(slp)
 ```
 
