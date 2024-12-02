@@ -1,4 +1,14 @@
+# path
+here::i_am("scripts/02_figures.R")
+
+# library packages
 library(ggplot2)
+
+# load data
+slp <- read.csv(here::here("final_proj", "data", "Sleep_health_and_lifestyle_dataset.csv"))
+str(slp)
+
+
 
 # Figure 1
 # Plot sleep duration by occupation
