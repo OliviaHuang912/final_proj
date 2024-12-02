@@ -1,3 +1,13 @@
+# path
+here::i_am("scripts/01_table.R")
+
+# library packages
+pacman::p_load(knitr)
+
+# load data
+slp <- read.csv(here::here("final_proj", "data", "Sleep_health_and_lifestyle_dataset.csv"))
+str(slp)
+
 # Summary statistics
 summary_slp <- data.frame(
   Variable = c("Age", "Sleep.Duration", "Physical.Activity.Level"),
