@@ -27,6 +27,26 @@ This project analyzes the "Sleep Health and Lifestyle" dataset, which includes d
     ```
 This will create the `toolkit_proj.html` document, which contains the analysis and visualizations.
 
+### Using Docker to Generate the Report
+1. Build the Docker image:
+    ```bash
+    make docker_build
+    ```
+
+2. Run the Docker container to generate the report:
+    ```bash
+    make docker_run
+    ```
+
+3. The `toolkit_proj.html` file will be available in the `report` directory.
+
+### Full Workflow
+To build and run the container in one step:
+```bash
+make all
+
+
+
 ## Contents of the Final Report
 1. Code for creating the table
 The code to create the summary table is located in the toolkit_proj.Rmd file under the Descriptive Statistics section. Specifically, this code calculates the mean, median, and standard deviation for key variables, such as age, sleep duration, and physical activity level. 

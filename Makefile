@@ -8,3 +8,9 @@ clean:
 	
 install:
 	R -e "renv::restore()"
+	
+docker_build:
+	docker build -t chua295/toolkit_proj .
+	
+docker_run:
+	docker run --rm -v $(PWD)/report:/report chua295/toolkit_proj
